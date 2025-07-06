@@ -33,7 +33,8 @@ def train_model(training_params: TrainParams) -> Net:
 
     # loop
     print("Start training...")
-    for i in notebook.tqdm(range(training_params.training_iterations)):
+    for i in range(training_params.training_iterations):
+    # for i in notebook.tqdm(range(training_params.training_iterations)):
 
       net.train()
       sample_z = mixing_noise(training_params.batch_size, 512, training_params.mixing, training_params.device)
