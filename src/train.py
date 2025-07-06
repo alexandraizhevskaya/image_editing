@@ -79,3 +79,4 @@ def train_model(training_params: TrainParams) -> Net:
           )
           print(f"checkpoint saved to '{training_params.checkpoint_path}/{str(i).zfill(6)}.pt'")
     return net
+
