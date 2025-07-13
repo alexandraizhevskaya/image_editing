@@ -6,7 +6,7 @@
 
 ## Структура репозитория
 * `src` - кастомная имплементация StyleGAN-NADA
-* `stylegan2` - реализация StyleGAN2 из из https://github.com/rosinality/stylegan2-pytorch), 
+* `stylegan2` - реализация StyleGAN2 из https://github.com/rosinality/stylegan2-pytorch), 
 * `nada_train.ipynb` - ноутбук с обучением 
 * `nada_inference.ipynb` - ноутбук с инференсом 
 * `project_report.pdf` - отчет о работе
@@ -16,8 +16,8 @@
 
 ## Инструкция к запуску
 
-Все обучение происходило в Colab. для запуска нужно скачать соответствующий блокнот
-(`nada_inference.ipynb` / `nada_inference.ipynb`) и запустить его, в секции с установкой библиотек и загрузкой компонент есть все нужное
+Все обучение происходило в Colab. Для запуска нужно скачать соответствующий блокнот
+(`nada_inference.ipynb` / `nada_inference.ipynb`) и запустить его. В секции с установкой библиотек и загрузкой компонент есть все нужное
 
 Ссылка на веса модели (они также подгружаются в ноутбуке с инференсом): https://drive.google.com/file/d/15zkZqUlfYQ4-Yy2C35b4Cw7SfxCNiHYU/view?usp=sharing
 
