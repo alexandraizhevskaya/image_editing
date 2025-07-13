@@ -94,8 +94,11 @@ class Net(torch.nn.Module):
         self.device = args.device
 
         self.generator_frozen = StyleGan2Generator(args.weights_path, size=args.size).to(self.device)
-        self.generator_trainable = StyleGan2Generator(args.weights_path, size=args.size).to(self.device)
-
+        if not args.trained_weights_path:
+            self.generator_trainable = StyleGan2Generator(args.weights_path, size=args.size).to(self.device)
+        else:
+            self.generator_trainable = StyleGan2Generator(args.trained_weights_path, size=args.size).to(self.device)
+            
         # freeze trainer model
         self.generator_frozen.freeze_layers()
         self.generator_frozen.eval()
