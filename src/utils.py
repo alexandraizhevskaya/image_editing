@@ -6,6 +6,8 @@ from oauth2client.client import GoogleCredentials
 
 import random
 import torch
+import matplotlib.pyplot as plt
+
 
 def load_weights():
 
@@ -42,4 +44,16 @@ def mixing_noise(batch, latent_dim, prob, device):
 
     else:
         return [make_noise(batch, latent_dim, 1, device)]
+
+
+def plot_loss(losses: list) -> None: 
+
+    plt.figure(figsize=(25, 6))
+    plt.plot(losses, label='train loss', color='blue')
+    plt.legend()
+    plt.xticks(ticks=range(len(losses)), labels=range(1, len(losses) + 1))
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss value')
+    plt.title('Loss')
+    plt.show()
   

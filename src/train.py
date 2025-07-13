@@ -7,9 +7,10 @@ from tqdm import notebook
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
+from typing import Tuple
 
 
-def train_model(training_params: TrainParams) -> Net:
+def train_model(training_params: TrainParams):
 
     if training_params.seed:
       torch.manual_seed(training_params.seed)
@@ -23,6 +24,8 @@ def train_model(training_params: TrainParams) -> Net:
     optimizer = torch.optim.Adam(
         net.generator_trainable.parameters(), lr=training_params.lr
         )
+    
+    losses = []
 
     # remove warnings
     import warnings
@@ -43,6 +46,8 @@ def train_model(training_params: TrainParams) -> Net:
       net.zero_grad()
       cliploss.backward()
       optimizer.step()
+
+      losses.append(cliploss.item())
 
       if i == 0 or (i + 1) % training_params.output_interval == 0:
 
@@ -78,5 +83,5 @@ def train_model(training_params: TrainParams) -> Net:
               f"{training_params.checkpoint_path}/{str(i).zfill(6)}.pt",
           )
           print(f"checkpoint saved to '{training_params.checkpoint_path}/{str(i).zfill(6)}.pt'")
-    return net
+    return net, losses
 
