@@ -10,6 +10,7 @@ class TrainParams(BaseModel):
     output_dir: str
     lr: float
     mixing: float
+    trained_weights_path: Optional[str]
     weights_path: str
     training_iterations: int
     src_class: str
